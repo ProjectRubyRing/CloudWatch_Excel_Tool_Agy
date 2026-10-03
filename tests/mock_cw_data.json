@@ -1,0 +1,74 @@
+{
+  "logGroups": [
+    {
+      "name": "/aws/lambda/auth-service",
+      "streams": {
+        "2026/10/04/[$LATEST]stream-auth-alpha": [
+          {
+            "timestamp": 1791061200000,
+            "eventId": "3601234567890001",
+            "message": "START RequestId: a1b2c3d4-0001-4000-8000-000000000001 Version: $LATEST"
+          },
+          {
+            "timestamp": 1791061201500,
+            "eventId": "3601234567890002",
+            "message": "[INFO] Authenticating user: takahashi@example.com (Tenant ID: 1042)"
+          },
+          {
+            "timestamp": 1791061202800,
+            "eventId": "3601234567890003",
+            "message": "[WARN] Token expiring within 5 minutes. Refresh token required soon."
+          },
+          {
+            "timestamp": 1791061203900,
+            "eventId": "3601234567890004",
+            "message": "END RequestId: a1b2c3d4-0001-4000-8000-000000000001"
+          }
+        ],
+        "2026/10/04/[$LATEST]stream-auth-beta": [
+          {
+            "timestamp": 1791061210000,
+            "eventId": "3601234567890005",
+            "message": "START RequestId: a1b2c3d4-0002-4000-8000-000000000002 Version: $LATEST"
+          },
+          {
+            "timestamp": 1791061211200,
+            "eventId": "3601234567890006",
+            "message": "[ERROR] Authentication failed: Invalid credentials provided.\nTraceback (most recent call last):\n  File \"handler.py\", line 42, in login\n    raise AuthError(\"Invalid password\")\nAuthError: Invalid password"
+          },
+          {
+            "timestamp": 1791061212000,
+            "eventId": "3601234567890007",
+            "message": "REPORT RequestId: a1b2c3d4-0002 Duration: 45.2 ms Billed Duration: 46 ms Memory Size: 256 MB Max Memory Used: 78 MB"
+          }
+        ]
+      }
+    },
+    {
+      "name": "/aws/ecs/order-backend",
+      "streams": {
+        "ecs/order-service/task-9988776655": [
+          {
+            "timestamp": 1791061300000,
+            "eventId": "3601234567890008",
+            "message": "2026-10-04 06:01:40 [main] INFO  c.e.order.OrderApplication - Starting order processing worker..."
+          },
+          {
+            "timestamp": 1791061305000,
+            "eventId": "3601234567890009",
+            "message": "2026-10-04 06:01:45 [pool-1] FATAL c.e.order.db.ConnectionPool - Database connection failed: Connection refused (10.0.1.50:5432)"
+          },
+          {
+            "timestamp": 1791061308000,
+            "eventId": "3601234567890010",
+            "message": "2026-10-04 06:01:48 [pool-1] ERROR c.e.order.service.OrderService - Could not process order ID #987654"
+          }
+        ]
+      }
+    },
+    {
+      "name": "/aws/apigateway/access-logs-empty",
+      "streams": {}
+    }
+  ]
+}
